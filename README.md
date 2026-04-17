@@ -8,9 +8,6 @@ HearMe ek smart platform hai jo users ko lost items track karne aur recover karn
 - 🤖 Smart assistant support
 - 📱 Simple and user-friendly UI
 
-## 🌐 Live Website
-https://pocket-mate-peach.vercel.app/
-
 ## 🛠️ Tech Stack
 - HTML
 - CSS
