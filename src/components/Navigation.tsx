@@ -1,6 +1,7 @@
 import React from 'react';
 import { Settings, History, User, LogOut, Shield } from 'lucide-react';
-import { supabase } from '@/integrations/supabase/client';
+import { auth } from '@/integrations/firebase/client';
+import { signOut } from 'firebase/auth';
 
 interface NavigationProps {
   onNavigate: (page: 'home' | 'settings' | 'history' | 'auth') => void;
@@ -9,8 +10,12 @@ interface NavigationProps {
 
 export const Navigation: React.FC<NavigationProps> = ({ onNavigate, isAuthenticated }) => {
   const handleLogout = async () => {
-    await supabase.auth.signOut();
-    onNavigate('home');
+    try {
+      await signOut(auth);
+      onNavigate('home');
+    } catch (error) {
+      console.error('Error signing out:', error);
+    }
   };
 
   return (
